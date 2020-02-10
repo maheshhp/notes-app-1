@@ -1,16 +1,23 @@
-export const addTodo = (todos, todo) => {
-  todos.push({
-    ...todo,
+export const addTodo = (todos, title) => [
+  ...todos,
+  {
+    title,
     id: todos.length + 1,
-  });
-};
+  },
+];
 
 export const setTodoDone = (todos, todoId) => {
-  const todosWhichMatchId = todos.filter((todo) => todo.id === todoId);
+  const updatedTodos = todos.reduce((accumulator, todo) => {
+    const currentTodo = {
+      ...todo,
+    };
 
-  if (todosWhichMatchId && todosWhichMatchId.length > 0) {
-    const todoToMark = todosWhichMatchId[0];
+    if (todo.id === todoId) {
+      currentTodo.done = true;
+    }
 
-    todoToMark.done = true;
-  }
+    return [...accumulator, currentTodo];
+  }, []);
+
+  return updatedTodos;
 };

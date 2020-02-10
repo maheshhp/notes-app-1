@@ -1,8 +1,9 @@
 import React from 'react';
 import { Profile } from '../../components/profile';
-import { TodoList } from '../../components/todo-list';
-import { setTodoDone } from '../../utils/todo-store';
 import designTimeTodos from '../../data/todos.json';
+import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
+import { HomePage } from '../home';
+import { setTodoDone, addTodo } from '../../utils/todo-store';
 
 export class App extends React.Component {
   constructor(props) {
@@ -10,38 +11,63 @@ export class App extends React.Component {
 
     this.state = {
       todos: [],
+      currentPage: HOME_PAGE,
     };
   }
 
-    componentDidMount = () => {
-      this.setState({
-        todos: designTimeTodos,
-      });
-    }
+  componentDidMount = () => {
+    this.setState({
+      todos: designTimeTodos,
+    });
+  }
 
-    updateTodo = (id) => {
-      const { todos } = this.state;
-      setTodoDone(todos, id);
+  onAddTodo = (title) => {
+    const { todos } = this.state;
+    const newTodos = addTodo(todos, title);
 
-      this.setState({
-        todos,
-      });
-    }
+    this.setState({
+      todos: newTodos,
+    });
+  }
 
-    render = () => {
-      const { todos } = this.state;
+  onUpdateTodo = (id) => {
+    const { todos } = this.state;
+    const newTodos = setTodoDone(todos, id);
 
-      return (
-        <>
-          <Profile
-            name="Saurav"
-            photoUrl="/saurav-sahu.jpg"
-          />
-          <TodoList
-            todos={todos}
-            onTodoComplete={(id) => this.updateTodo(id)}
-          />
-        </>
-      );
-    }
+    this.setState({
+      todos: newTodos,
+    });
+  }
+
+  onNavigate = (page) => {
+    this.setState({
+      currentPage: page,
+    });
+  }
+
+  render = () => {
+    const { currentPage, todos } = this.state;
+
+    const pageView = currentPage === HOME_PAGE
+      ? (
+        <HomePage
+          todos={todos}
+          onUpdateTodo={this.onUpdateTodo}
+          onNavigate={() => this.onNavigate(CREATE_TODO_PAGE)}
+        />
+      )
+      : null;
+
+    return (
+      <div>
+        <Profile
+          name="Saurav"
+          photoUrl="/saurav-sahu.jpg"
+        />
+        <div>
+          {pageView}
+        </div>
+      </div>
+    );
+  }
 }
