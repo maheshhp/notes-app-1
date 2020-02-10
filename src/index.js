@@ -4,8 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const App = () => (
-    <div>notes-app</div>
-)
+  <div>notes-app</div>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
