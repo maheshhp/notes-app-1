@@ -1,5 +1,6 @@
 import React from 'react';
 import { Me } from '../me';
+import styles from './index.module.css';
 import designTimeTodos from '../../data/todos.json';
 import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
 import { HomePage } from '../home';
@@ -72,7 +73,7 @@ export class App extends React.Component {
     }
 
     return (
-      <div>
+      <div className={styles.container}>
         <Me />
         <div>
           {pageView}
