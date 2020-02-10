@@ -10,6 +10,6 @@ export default {
 export const Default = () => (
     <TextArea
         onTextChanged={action('onTextChanged')}
-        limit={100}
+        limit={5}
     />
 )
