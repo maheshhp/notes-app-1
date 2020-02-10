@@ -2,12 +2,17 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .me-container {
-    width: 40%
+    width: 30%;
 }
 
 .page-view-container {
-    width: 60%;
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

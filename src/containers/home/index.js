@@ -7,7 +7,7 @@ import { CREATE_TODO_PAGE } from '../../constants';
 import { todo as todoShape } from '../../models/todo';
 
 export const HomePage = ({ todos, onUpdateTodo, onNavigate }) => (
-  <div>
+  <>
     <TodoList
       todos={todos}
       onTodoComplete={onUpdateTodo}
@@ -15,7 +15,7 @@ export const HomePage = ({ todos, onUpdateTodo, onNavigate }) => (
     <Button onClick={() => onNavigate(CREATE_TODO_PAGE)}>
       Create New
     </Button>
-  </div>
+  </>
 );
 
 HomePage.propTypes = {
