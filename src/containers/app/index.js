@@ -1,5 +1,5 @@
 import React from 'react';
-import { Profile } from '../../components/profile';
+import { Me } from '../me';
 import designTimeTodos from '../../data/todos.json';
 import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
 import { HomePage } from '../home';
@@ -73,10 +73,7 @@ export class App extends React.Component {
 
     return (
       <div>
-        <Profile
-          name="Saurav"
-          photoUrl="/saurav-sahu.jpg"
-        />
+        <Me />
         <div>
           {pageView}
         </div>
