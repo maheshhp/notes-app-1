@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 
 export class TextArea extends React.Component {
   constructor(props) {
@@ -38,3 +39,12 @@ export class TextArea extends React.Component {
       );
     }
 }
+
+TextArea.propTypes = {
+  limit: PT.number,
+  onTextChanged: PT.func.isRequired,
+};
+
+TextArea.defaultProps = {
+  limit: 100,
+};
