@@ -3,12 +3,8 @@ import PT from 'prop-types';
 
 export const Profile = ({ name, photoUrl }) => (
   <div>
-    <div>
-      Hi,
-      {name}
-      !
-    </div>
     <img src={photoUrl} alt={`A photograph of ${name}`} />
+    <div>{`Hi, ${name}!`}</div>
   </div>
 );
 
