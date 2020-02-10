@@ -1,6 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import { Card } from '../card';
+import { todo as todoShape } from '../../models/todo';
 
 export const TodoList = ({ todos, onTodoComplete }) => (
   <div>
@@ -20,11 +21,7 @@ export const TodoList = ({ todos, onTodoComplete }) => (
 );
 
 TodoList.propTypes = {
-  todos: PT.arrayOf(PT.shape({
-    id: PT.number.isRequired,
-    title: PT.string.isRequired,
-    done: PT.bool.isRequired,
-  })),
+  todos: PT.arrayOf(todoShape),
   onTodoComplete: PT.func.isRequired,
 };
 

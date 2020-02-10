@@ -1,4 +1,5 @@
 import React from 'react';
+import PT from 'prop-types';
 import { TextArea } from '../../components/text-area';
 import { Button } from '../../components/button';
 import { HOME_PAGE } from '../../constants';
@@ -27,3 +28,8 @@ export class NewTodoPage extends React.Component {
       </div>
     );
 }
+
+NewTodoPage.propTypes = {
+  onAddTodo: PT.func.isRequired,
+  onNavigate: PT.func.isRequired,
+};
