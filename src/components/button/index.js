@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Button = ({ onClick, children }) => (
-  <button onClick={onClick}>
+  <button
+    onClick={onClick}
+    type="button"
+  >
     {children}
   </button>
 );
