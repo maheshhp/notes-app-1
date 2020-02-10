@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import styles from './index.module.css';
 
 export class CurrentTime extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export class CurrentTime extends React.Component {
       const currentMoment = moment(time);
 
       return (
-        <div>
+        <div className={styles.container}>
           <div>{currentMoment.format('HH:mm:ss a')}</div>
           <div>{currentMoment.format('Do MMMM, YYYY')}</div>
         </div>

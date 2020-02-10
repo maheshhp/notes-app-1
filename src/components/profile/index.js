@@ -1,10 +1,15 @@
 import React from 'react';
 import PT from 'prop-types';
+import styles from './index.module.css';
 
 export const Profile = ({ name, photoUrl }) => (
-  <div>
-    <img src={photoUrl} alt={`A photograph of ${name}`} />
-    <div>{`Hi, ${name}!`}</div>
+  <div className={styles.container}>
+    <img
+      src={photoUrl}
+      alt={`A photograph of ${name}`}
+      className={styles.photo}
+    />
+    <div className={styles.message}>{`Hi, ${name}!`}</div>
   </div>
 );
 
