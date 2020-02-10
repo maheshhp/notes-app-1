@@ -2,3 +2,11 @@
     height: 100%;
     display: flex;
 }
+
+.me-container {
+    width: 40%
+}
+
+.page-view-container {
+    width: 60%;
+}

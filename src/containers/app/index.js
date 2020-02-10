@@ -74,8 +74,10 @@ export class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <Me />
-        <div>
+        <div className={styles.meContainer}>
+          <Me />
+        </div>
+        <div className={styles.pageViewContainer}>
           {pageView}
         </div>
       </div>
