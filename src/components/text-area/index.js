@@ -33,7 +33,7 @@ export class TextArea extends React.Component {
             >
                 {text}
                 </textarea>
-                <div>{`${charsLeft} left`}</div>
+                <div>{`${charsLeft} characters left`}</div>
             </div>
         )
     }
