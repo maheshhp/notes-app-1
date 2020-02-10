@@ -1,8 +1,9 @@
 export const addTodo = (todos, title) => [
   ...todos,
   {
-    title,
     id: todos.length + 1,
+    title,
+    done: false,
   },
 ];
 

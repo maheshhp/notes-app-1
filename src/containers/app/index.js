@@ -3,6 +3,7 @@ import { Profile } from '../../components/profile';
 import designTimeTodos from '../../data/todos.json';
 import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
 import { HomePage } from '../home';
+import { NewTodoPage } from '../new-todo';
 import { setTodoDone, addTodo } from '../../utils/todo-store';
 
 export class App extends React.Component {
@@ -56,7 +57,12 @@ export class App extends React.Component {
           onNavigate={() => this.onNavigate(CREATE_TODO_PAGE)}
         />
       )
-      : null;
+      : (
+        <NewTodoPage
+          onAddTodo={(title) => this.onAddTodo(title)}
+          onNavigate={() => this.onNavigate(HOME_PAGE)}
+        />
+      );
 
     return (
       <div>
