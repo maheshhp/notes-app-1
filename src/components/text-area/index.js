@@ -21,13 +21,19 @@ export class TextArea extends React.Component {
 
     render = () => {
         const { text } = this.state;
+        const { limit } = this.props;
         
+
+        const charsLeft = limit - text.length;
         return (
+            <div>
             <textarea
                 onChange={(event) => this.onTextChanged(event.target.value)}
             >
                 {text}
-            </textarea>
+                </textarea>
+                <div>{`${charsLeft} left`}</div>
+            </div>
         )
     }
 }
