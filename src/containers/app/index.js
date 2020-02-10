@@ -49,20 +49,27 @@ export class App extends React.Component {
   render = () => {
     const { currentPage, todos } = this.state;
 
-    const pageView = currentPage === HOME_PAGE
-      ? (
-        <HomePage
-          todos={todos}
-          onUpdateTodo={this.onUpdateTodo}
-          onNavigate={() => this.onNavigate(CREATE_TODO_PAGE)}
-        />
-      )
-      : (
-        <NewTodoPage
-          onAddTodo={(title) => this.onAddTodo(title)}
-          onNavigate={() => this.onNavigate(HOME_PAGE)}
-        />
-      );
+    let pageView = null;
+    switch (currentPage) {
+      case HOME_PAGE:
+        pageView = (
+          <HomePage
+            todos={todos}
+            onUpdateTodo={this.onUpdateTodo}
+            onNavigate={this.onNavigate}
+          />
+        );
+        break;
+      case CREATE_TODO_PAGE:
+        pageView = (
+          <NewTodoPage
+            onAddTodo={(title) => this.onAddTodo(title)}
+            onNavigate={this.onNavigate}
+          />
+        );
+        break;
+      default: break;
+    }
 
     return (
       <div>

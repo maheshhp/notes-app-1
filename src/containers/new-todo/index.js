@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextArea } from '../../components/text-area';
 import { Button } from '../../components/button';
+import { HOME_PAGE } from '../../constants';
 
 export class NewTodoPage extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export class NewTodoPage extends React.Component {
       const { onAddTodo, onNavigate } = this.props;
 
       onAddTodo(todoText);
-      onNavigate();
+      onNavigate(HOME_PAGE);
     };
 
     render = () => (
