@@ -28,7 +28,8 @@ export class TextArea extends React.Component {
         return (
             <div>
             <textarea
-                onChange={(event) => this.onTextChanged(event.target.value)}
+                    onChange={(event) => this.onTextChanged(event.target.value)}
+                    disabled={charsLeft <= 0}
             >
                 {text}
                 </textarea>
