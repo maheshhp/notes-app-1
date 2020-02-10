@@ -1,0 +1,8 @@
+.root {
+    font-size: 1.5rem;
+    border: 0.06325rem solid black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background: transparent;
+    margin: 1rem;
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import PT from 'prop-types';
+import styles from './index.module.css';
 import { Button } from '../button';
 
 export const Card = ({ title, onDone }) => (
-  <div>
-    <div>{title}</div>
+  <div className={styles.container}>
+    <div className={styles.text}>{title}</div>
     <Button onClick={onDone}>
       Done
     </Button>

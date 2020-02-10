@@ -1,12 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
+import styles from './index.module.css';
 import { Card } from '../card';
 import { todo as todoShape } from '../../models/todo';
 
 export const TodoList = ({ todos, onTodoComplete }) => (
-  <div>
-    <div>All To-dos</div>
-    {
+  <div className={styles.container}>
+    <div className={styles.title}>All To-dos</div>
+    <div className={styles.todos}>
+      {
       todos
         .filter((todo) => todo.done === false)
         .map((todo) => (
@@ -16,7 +18,8 @@ export const TodoList = ({ todos, onTodoComplete }) => (
             onDone={() => onTodoComplete(todo.id)}
           />
         ))
-        }
+      }
+    </div>
   </div>
 );
 

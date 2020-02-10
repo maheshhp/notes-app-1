@@ -22,10 +22,10 @@ export class NewTodoPage extends React.Component {
     };
 
     render = () => (
-      <div>
+      <>
         <TextArea onTextChanged={(text) => this.setState({ todoText: text })} />
         <Button onClick={this.onSubmitClick}>Submit</Button>
-      </div>
+      </>
     );
 }
 

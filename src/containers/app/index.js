@@ -74,10 +74,10 @@ export class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <div className={styles.meContainer}>
+        <div className={styles['me-container']}>
           <Me />
         </div>
-        <div className={styles.pageViewContainer}>
+        <div className={styles['page-view-container']}>
           {pageView}
         </div>
       </div>
