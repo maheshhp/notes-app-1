@@ -1,5 +1,4 @@
 import React from 'react';
-import { Me } from '../me';
 import styles from './index.module.css';
 import designTimeTodos from '../../data/todos.json';
 import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
@@ -74,9 +73,6 @@ export class App extends React.Component {
 
     return (
       <div className={styles.container}>
-        <div className={styles['me-container']}>
-          <Me />
-        </div>
         <div className={styles['page-view-container']}>
           {pageView}
         </div>
