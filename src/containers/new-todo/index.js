@@ -13,23 +13,23 @@ export class NewTodoPage extends React.Component {
     };
   }
 
-    onSubmitClick = () => {
-      const { todoText } = this.state;
-      const { onAddTodo, onNavigate } = this.props;
+  onSubmitClick = () => {
+    const { todoText } = this.state;
+    const { onAddTodo, history } = this.props;
 
-      onAddTodo(todoText);
-      onNavigate(HOME_PAGE);
-    };
+    onAddTodo(todoText);
+    history.push(HOME_PAGE);
+  };
 
-    render = () => (
-      <>
-        <TextArea onTextChanged={(text) => this.setState({ todoText: text })} />
-        <Button onClick={this.onSubmitClick}>Submit</Button>
-      </>
-    );
+  render = () => (
+    <>
+      <TextArea onTextChanged={(text) => this.setState({ todoText: text })} />
+      <Button onClick={this.onSubmitClick}>Submit</Button>
+    </>
+  );
 }
 
 NewTodoPage.propTypes = {
   onAddTodo: PT.func.isRequired,
-  onNavigate: PT.func.isRequired,
+  history: PT.object.isRequired,
 };

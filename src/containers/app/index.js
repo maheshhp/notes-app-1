@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  Switch, Route, withRouter,
+} from 'react-router-dom';
+import PT from 'prop-types';
 import styles from './index.module.css';
 import designTimeTodos from '../../data/todos.json';
 import { HOME_PAGE, CREATE_TODO_PAGE } from '../../constants';
@@ -6,13 +10,12 @@ import { HomePage } from '../home';
 import { NewTodoPage } from '../new-todo';
 import { setTodoDone, addTodo } from '../../utils/todo-store';
 
-export class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       todos: [],
-      currentPage: HOME_PAGE,
     };
   }
 
@@ -40,43 +43,35 @@ export class App extends React.Component {
     });
   }
 
-  onNavigate = (page) => {
-    this.setState({
-      currentPage: page,
-    });
-  }
-
   render = () => {
-    const { currentPage, todos } = this.state;
-
-    let pageView = null;
-    switch (currentPage) {
-      case HOME_PAGE:
-        pageView = (
-          <HomePage
-            todos={todos}
-            onUpdateTodo={this.onUpdateTodo}
-            onNavigate={this.onNavigate}
-          />
-        );
-        break;
-      case CREATE_TODO_PAGE:
-        pageView = (
-          <NewTodoPage
-            onAddTodo={(title) => this.onAddTodo(title)}
-            onNavigate={this.onNavigate}
-          />
-        );
-        break;
-      default: break;
-    }
+    const { todos } = this.state;
+    const { history } = this.props;
 
     return (
       <div className={styles.container}>
         <div className={styles['page-view-container']}>
-          {pageView}
+          <Switch>
+            <Route path={HOME_PAGE}>
+              <HomePage
+                todos={todos}
+                onUpdateTodo={this.onUpdateTodo}
+              />
+            </Route>
+            <Route path={CREATE_TODO_PAGE}>
+              <NewTodoPage
+                onAddTodo={(title) => this.onAddTodo(title)}
+                history={history}
+              />
+            </Route>
+          </Switch>
         </div>
       </div>
     );
   }
 }
+
+App.propTypes = {
+  history: PT.object.isRequired,
+};
+
+export default withRouter(App);

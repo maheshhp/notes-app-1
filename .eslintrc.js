@@ -26,6 +26,7 @@ module.exports = {
         "import/prefer-default-export": "off",
         "import/no-extraneous-dependencies": "off",
         "react/jsx-filename-extension": "off",
-        "react/jsx-props-no-spreading": "warn"
+        "react/jsx-props-no-spreading": "warn",
+        "react/forbid-prop-types": "off"
     }
 };
